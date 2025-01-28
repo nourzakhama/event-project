@@ -7,7 +7,7 @@ import { useAuth } from "@clerk/nextjs";
 const NavItems = () => {
   const pathname = usePathname();
   const { userId } = useAuth(); 
-  const list = userId?.trim() === "user_2q8OlMHNbPEIY1tqC1FRHxfkHRl" || userId?.trim() === "user_2qCwNSfYMqeA1Mwsgko0HCklpQz" ? headerLinks : UheaderLinks;
+  const list = userId?.trim() === "user_2sBmGAUuBUG2ghzUgMFnpQYXEOz" || userId?.trim() === "user_2qCwNSfYMqeA1Mwsgko0HCklpQz" ? headerLinks : UheaderLinks;
 
   return (
     <nav>

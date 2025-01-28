@@ -68,7 +68,7 @@ export async function POST(req: Request) {
     try {
       // Add the participant to your database
       const response = await addParticipant(user);
-      console.log('Participant added:', response);
+  alert('participant added:'+user.cin)
 
       return new Response('Webhook received and participant added', { status: 200 });
     } catch (error) {
@@ -89,6 +89,7 @@ if (eventType === 'user.updated') {
       username: username!,
       photo: image_url,
     }
+    
 
     const updatedUser = await updateParticipant(id, user)
 

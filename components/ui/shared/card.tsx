@@ -4,6 +4,7 @@ import { formatDateTime } from '@/lib/utils'
 import Image from "next/image";
 import { Check, Divide } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import  CheckOutButton  from "@/components/ui/shared/CheckOutButton";
 
 import {DeleteConfirmation} from "@/components/deleteConfirmation";
 type props={
@@ -60,7 +61,7 @@ const Card = ({ event, admin,member, fetchEvents }: props) => {
         <Link href={`/events/${event.id}`} className="text-lg font-semibold text-gray-800 hover:underline">
           {event.title}
         </Link>
-{/* { member && <CheckOutButton event={event}  />} */}
+{ member && <CheckOutButton event={event}  />}
         {/* Admin Additional Info */}
         {admin && event && (
           <div className="mt-4 text-sm text-gray-700">

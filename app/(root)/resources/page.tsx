@@ -24,8 +24,8 @@ const Page = () => {
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
+    setForm((Form) => ({
+      ...Form,
       [name]: name === 'quantity' ? parseInt(value) || 0 : value, // Parse numbers for 'quantity'
     }));
   };
@@ -189,7 +189,7 @@ const Page = () => {
           </form>
         </div>
       ) : (
-        <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] bg-grey-50 py-28 text-center">
+        <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] alert alert-primary bg-grey-50 py-28 text-center">
           <h3 className="p-bold-20 md:h5-bold">No resources found</h3>
           <p className="p-regular-14">Come back later</p>
         </div>

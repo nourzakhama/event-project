@@ -202,7 +202,7 @@ const Page = () => {
         </div>
       </form>
     </div>):(  // Affiche un état vide si aucune donnée n'est trouvée
-        <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] bg-grey-50 py-28 text-center">
+        <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] alert alert-primary bg-grey-50 py-28 text-center">
           <h3 className="p-bold-20 md:h5-bold">No participant found</h3>
           <p className="p-regular-14">come back later</p>
         </div>
