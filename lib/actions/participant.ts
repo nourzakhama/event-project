@@ -13,11 +13,16 @@ export const  getParticipants=async()=>{
 }
 export const addParticipant=async(participant:Participant)=>{
     console.log(participant);
-    try{let res=axios.post('http://localhost:4000/participants',participant);
-
+    try{let res=await axios.post('http://localhost:4000/participants',participant);
+        if(res.status===200 || res.status===201){
+            return JSON.parse(JSON.stringify(res));
+        }
+       return false;
     }catch(error){
         console.error('Error adding participant:', error);
+        return false;
         throw error;
+
     }
 
 }

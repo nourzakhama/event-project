@@ -45,12 +45,12 @@ export type Event = {
 
 export type Participant = {
   id?:string
-  cin: string;
+  cin?: string;
   email: string;
-  name: string;
+  name?: string;
   firstName: string | null;
   lastName: string | null;
-  imageUrl: string;
+  imageUrl?: string;
   satisfaction?:string
 };
 export type Employe={
