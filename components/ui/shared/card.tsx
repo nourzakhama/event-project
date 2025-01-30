@@ -17,7 +17,7 @@ type props={
 }
 const Card = ({ event, admin,member, fetchEvents }: props) => {
   return (
-    <div className="group relative flex flex-col min-h-[600px] w-full max-w-[500px] overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl md:min-h-[450px]">
+    <div className="group relative flex flex-col min-h-[600px] w-full max-w-[500px] overflow-hidden rounded-2xl bg-white text-black dark:bg-black dark:text-white shadow-lg transition-all duration-300 hover:shadow-xl md:min-h-[450px]">
       {/* Event Image */}
       <Link
         href={`/events/${event.id}`}

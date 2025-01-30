@@ -190,7 +190,7 @@ const EventForm = ({ userId, type, id }: Props) => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg border">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg border ">
       <h1 className="text-2xl font-semibold mb-6">
         {type === "create" ? "Create Event" : "Update Event"}
       </h1>

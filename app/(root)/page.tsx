@@ -21,7 +21,7 @@ const Home=async({ searchParams }: SearchParamProps)=>{
     <>
       {/* Hero Section */}
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-10 md:py-16">
-        <div className="wrapper grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div className="wrapper grid grid-cols-1 gap-10 md:grid-cols-2 min-h-screen bg-white text-black dark:bg-black dark:text-white">
           {/* Hero Content */}
           <div className="flex flex-col justify-center gap-6 text-center md:text-left">
             <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
@@ -38,7 +38,7 @@ const Home=async({ searchParams }: SearchParamProps)=>{
           </div>
 
           {/* Hero Image */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center min-h-screen bg-white text-black dark:bg-black dark:text-white">
             <Image
               src="/assets/images/pf2.png"
               alt="Event showcase"
@@ -51,7 +51,7 @@ const Home=async({ searchParams }: SearchParamProps)=>{
       </section>
 
       {/* Events Section */}
-      <section id="events" className="wrapper py-12">
+      <section id="events" className="wrapper py-12 min-h-screen bg-white text-black dark:bg-black dark:text-white">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
           Trusted by Thousands of Events
         </h2>
