@@ -21,13 +21,13 @@ const Home=async({ searchParams }: SearchParamProps)=>{
     <>
       {/* Hero Section */}
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-10 md:py-16">
-        <div className="wrapper grid grid-cols-1 gap-10 md:grid-cols-2 min-h-screen bg-white text-black dark:bg-black dark:text-white">
+        <div className="wrapper grid grid-cols-1 gap-10 md:grid-cols-2 min-h-screen bg-primary-50 text-black dark:bg-black dark:text-white">
           {/* Hero Content */}
-          <div className="flex flex-col justify-center gap-6 text-center md:text-left">
-            <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+          <div className="flex flex-col justify-center gap-6 text-center md:text-left  bg-primary-50 text-black dark:bg-black dark:text-white">
+            <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl  bg-primary-50 text-black dark:bg-black dark:text-white">
               Explore, Book, and Create Events Worldwide!
             </h1>
-            <p className="text-lg text-gray-600 md:text-xl">
+            <p className="text-lg text-gray-600 md:text-xl  bg-primary-50 text-black dark:bg-black dark:text-white">
               Discover and book exciting events worldwide, or create and host
               your own on our platform. Join a vibrant community to connect with
               others who share your passion for unforgettable experiences!
@@ -38,7 +38,7 @@ const Home=async({ searchParams }: SearchParamProps)=>{
           </div>
 
           {/* Hero Image */}
-          <div className="flex items-center justify-center min-h-screen bg-white text-black dark:bg-black dark:text-white">
+          <div className="flex items-center justify-center min-h-screen  bg-primary-50 text-black dark:bg-black dark:text-white text-black dark:bg-black dark:text-white">
             <Image
               src="/assets/images/pf2.png"
               alt="Event showcase"
