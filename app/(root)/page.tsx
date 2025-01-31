@@ -7,11 +7,8 @@ import Link from "next/link";
 import Search from "@/components/ui/shared/search";
 import { SearchParamProps } from "@/types";
 import CategoryFilter from "@/components/ui/shared/CategoryFilter";
-import { get } from "http";
 
-
-
-const Home=async({ searchParams }: SearchParamProps)=>{
+const Home = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
   const category = (searchParams?.category as string) || "";
@@ -20,25 +17,25 @@ const Home=async({ searchParams }: SearchParamProps)=>{
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-10 md:py-16">
-        <div className="wrapper grid grid-cols-1 gap-10 md:grid-cols-2 min-h-screen bg-primary-50 text-black dark:bg-black dark:text-white">
+      <section className="bg-dotted-pattern bg-contain py-10 md:py-16 bg-primary-50 dark:bg-black">
+        <div className="wrapper grid grid-cols-1 gap-10 md:grid-cols-2 min-h-screen">
           {/* Hero Content */}
-          <div className="flex flex-col justify-center gap-6 text-center md:text-left  bg-primary-50 text-black dark:bg-black dark:text-white">
-            <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl  bg-primary-50 text-black dark:bg-black dark:text-white">
+          <div className="flex flex-col justify-center gap-6 text-center md:text-left">
+            <h1 className="text-4xl font-bold leading-tight text-gray-900 dark:text-white">
               Explore, Book, and Create Events Worldwide!
             </h1>
-            <p className="text-lg text-gray-600 md:text-xl  bg-primary-50 text-black dark:bg-black dark:text-white">
+            <p className="text-lg text-gray-600 dark:text-gray-300">
               Discover and book exciting events worldwide, or create and host
               your own on our platform. Join a vibrant community to connect with
               others who share your passion for unforgettable experiences!
             </p>
             <Button size="lg" asChild className="w-full sm:w-fit">
-              <Link href="#events">Explore Events</Link>
+              <Link href="#events" className=" text-gray-900 dark:text-white">Explore Events</Link>
             </Button>
           </div>
 
           {/* Hero Image */}
-          <div className="flex items-center justify-center min-h-screen  bg-primary-50 text-black dark:bg-black dark:text-white text-black dark:bg-black dark:text-white">
+          <div className="flex items-center justify-center">
             <Image
               src="/assets/images/pf2.png"
               alt="Event showcase"
@@ -51,8 +48,8 @@ const Home=async({ searchParams }: SearchParamProps)=>{
       </section>
 
       {/* Events Section */}
-      <section id="events" className="wrapper py-12 min-h-screen bg-white text-black dark:bg-black dark:text-white">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+      <section id="events" className="wrapper py-12 min-h-screen  dark:bg-black">
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-white text-center mb-8">
           Trusted by Thousands of Events
         </h2>
 
@@ -73,10 +70,11 @@ const Home=async({ searchParams }: SearchParamProps)=>{
           totalPages={events?.totalPages || 0}
           admin={false}
           member={false}
-          fetchEvents={()=>{}}
+          fetchEvents={() => {}}
         />
       </section>
     </>
   );
-}
+};
+
 export default Home;

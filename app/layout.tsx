@@ -1,4 +1,4 @@
- import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -26,8 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="dark:bg-black dark:text-white">  
-        <body className={`${poppins.variable} font-poppins bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300`}>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${poppins.variable} font-poppins dark:bg-black dark:text-white`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <div className="min-h-screen flex flex-col">
               <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">

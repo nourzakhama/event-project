@@ -41,7 +41,7 @@ const Collection = ({
     <>
       {data.length > 0 ? (
         <div className="flex  justify-center gap-10">
-          <ul className="grid w-full grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
+          <ul className="grid w-full grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:gap-10 dark:bg-black">
             {data.map((item) => {
            
 

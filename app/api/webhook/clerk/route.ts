@@ -86,8 +86,9 @@ export async function POST(req: Request) {
     };
 
     try {
+      console.log('Updating user:', user);
       const updatedUser = await updateParticipant(user.cin!, user);
-      return NextResponse.json({ message: 'User updated', user: updatedUser });
+      return new Response("", { status: 200 });
     } catch (error) {
       console.error('Error updating participant:', error);
       return new Response('Error updating user', { status: 500 });

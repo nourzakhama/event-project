@@ -37,7 +37,7 @@ const Page = () => {
   return (
     <>
       {/* My Tickets Section */}
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10  dark:bg-black dark:text-white">
         <div className="wrapper flex items-center justify-center sm:justify-between">
           <h3 className="h3-bold text-center sm:text-left">My Tickets</h3>
           <Button asChild size="lg" className="button hidden sm:flex">
@@ -46,7 +46,7 @@ const Page = () => {
         </div>
       </section>
         {/* Events Collection */}
-        <section className="wrapper my-8">
+        <section className="wrapper my-8 dark:bg-black">
         {loading ? (
           <p className="text-center">Loading events...</p>
         ) : (
@@ -67,7 +67,7 @@ const Page = () => {
       </section>
 
       {/* Organized Events Section */}
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10  dark:bg-black dark:text-white">
         <div className="wrapper flex items-center justify-center sm:justify-between">
           <h3 className="h3-bold text-center sm:text-left">Events Organized</h3>
           <Button asChild size="lg" className="button hidden sm:flex">
@@ -75,7 +75,7 @@ const Page = () => {
           </Button>
         </div>
       </section>
-      <section className="wrapper my-8">
+      <section className="wrapper my-8 dark:bg-black">
         <Collection 
           data={organizedEvents}
           emptyTitle="No events have been created by you yet"

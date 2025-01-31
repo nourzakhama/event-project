@@ -92,7 +92,21 @@ a:hover {
 .wrapper {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
+.dark a {
+  color: hsl(var(--foreground)) !important; /* Ensure dark mode text color */
+}
 
+.dark a:hover {
+  color: hsl(var(--primary)) !important; /* Ensure dark mode hover color */
+}
+
+.dark .custom-link {
+  color: hsl(var(--muted-foreground)) !important; /* Ensure dark mode link color */
+}
+
+.dark .custom-link:hover {
+  color: hsl(var(--primary)) !important; /* Ensure dark mode link hover color */
+}
 
 body {
   font-family: var(--font-poppins)
@@ -300,3 +314,10 @@ body {
   background-color: #FF0000;
 }
 
+.dark .bg-white {
+  background-color: hsl(var(--background)) !important;
+}
+
+.dark .text-black {
+  color: hsl(var(--foreground)) !important;
+}
