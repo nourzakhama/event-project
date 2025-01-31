@@ -67,12 +67,16 @@ export type Resource={
   status?:string
   busyUntil?:Date
 }
-export type Order= {
-  eventTitle: string | undefined;
-  eventId: string | undefined;
-  price: number | undefined;
-  buyerId: string | null | undefined;
-}
+export type Order = {
+  id?: string;
+  createdAt: Date;
+  stripeId: string;
+  price: number;
+  eventId: string;
+  buyerId: string;
+  status: string;
+  eventTitle: string;
+};
 
 
 

@@ -27,6 +27,7 @@ export async function POST(request: Request) {
             stripeId: id,
             eventId: metadata?.eventId || '',
             buyerId: metadata?.buyerId || '',
+            eventTitle: metadata?.eventTitle || '', // Add eventTitle from metadata
             totalAmount: amount_total ? (amount_total / 100).toString() : '0',
             createdAt: new Date(),
         }

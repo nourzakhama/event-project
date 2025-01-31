@@ -7,7 +7,7 @@ import Stripe from "stripe";
 export const checkoutOrder = async (order: Order) => {
   // Initialize Stripe with your secret key
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: "2025-01-27.acacia", // Use the correct API version
+    apiVersion: "2024-12-18.acacia", // Use the correct API version
   });
 
   // Validate required fields
@@ -46,6 +46,7 @@ export const checkoutOrder = async (order: Order) => {
       metadata: {
         eventId: order.eventId, // Add metadata for your reference
         buyerId: order.buyerId,
+        eventTitle: order.eventTitle,
       },
       mode: "payment", // Payment mode
       success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/profile`, // Redirect URL after success
@@ -80,4 +81,44 @@ export const createOrder = async (order: CreateOrder) => {
     console.error("Error creating order:", error);
     throw error;
   }
+}
+
+  export const getOrders = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/order');
+      return response.data;
+    } catch (error) {
+      console.error("Erreur dans getEmploye:", error);
+      return [];
+    }
+
+  }
+  export const addOrder = async (order: Order) => {
+
+    try {
+      let res = axios.post('http://localhost:4000/order', order);
+
+    } catch (error) {
+      console.error('Error adding resource:', error);
+      throw error;
+    }
+
+  }
+  export const deleteOrder = async (id: string | undefined) => {
+    try {
+      let res = axios.delete(`http://localhost:4000/order/${id}`);
+    } catch (error) {
+      console.error('Error deleting resource:', error);
+      throw error;
+    }
+
+  }
+  export const updateOrder = async (orId: string, orderData: any) => {
+    try {
+      axios.patch(`http://localhost:4000/order/${orId}`,orderData);
+
+    } catch (error) {
+      console.error('Error updating orders:', error);
+      throw error;
+    }
 }

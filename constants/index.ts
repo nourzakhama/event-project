@@ -49,6 +49,10 @@ export const DheaderLinks = [
   {
     label: 'resources',
     route: '/resources',
+  },
+  {
+    label: 'orders',
+    route: '/orders',
   }
 ]
 
