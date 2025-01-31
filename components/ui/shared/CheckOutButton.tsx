@@ -16,7 +16,7 @@ const CheckOutButton = ({event}:{event:Event}) => {
     const {userId} = useAuth();
    const  userid=userId?.trim();
    let prix: number;
-   if (event.prix! === "" ||event.prix==undefined|| event.prix === undefined) {
+   if (event.prix! === "" ||event.prix==undefined) {
     prix = 0; // Default to 0 if empty or undefined
   } else {
     prix = +event.prix; // Convert the string to a number

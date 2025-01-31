@@ -68,10 +68,12 @@ export type Resource={
   busyUntil?:Date
 }
 export type Order= {
-  eventTitle: string | undefined;
+  stripeId?: string | undefined;
+  eventTitle?: string | undefined;
   eventId: string | undefined;
-  price: number | undefined;
+  price: number;
   buyerId: string | null | undefined;
+  createdAt?: Date;
 }
 
 

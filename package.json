@@ -37,7 +37,7 @@
     "react-dropzone": "^14.3.5",
     "react-hook-form": "^7.53.2",
     "shadcn-ui": "^0.9.3",
-    "stripe": "^17.5.0",
+    "stripe": "^17.6.0",
     "svix": "^1.45.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
