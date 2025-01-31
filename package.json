@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/clerk-js": "^5.49.0",
+    "@clerk/clerk-sdk-node": "^5.1.6",
     "@clerk/nextjs": "^5.7.5",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",

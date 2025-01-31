@@ -45,7 +45,7 @@ export type Event = {
 
 export type Participant = {
   id?:string
-  cin: string;
+  cin: string|undefined;
   email: string;
   name: string;
   firstName: string | null;

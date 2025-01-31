@@ -11,14 +11,10 @@ const Page = () => {
   const [isEditing, setIsEditing] = useState(false);
   const[currentId,setCurrentId]=useState<string>('');
 
- 
   const fetchParticipants=async()=>{
     const list=await getParticipants();
     setData(list);
   }
-
-
-  
 
   const handleChange = (e:any) => {
     const { name, value } = e.target;
@@ -48,169 +44,168 @@ const Page = () => {
     await deleteParticipant(id);
     fetchParticipants();
   };
+
   useEffect(()=>{
     fetchParticipants();
-
   },[handleDelete,handleUpdate,handleAdd])
-  return (<>
-   <div className="grid grid-cols-[200px_1fr] md:grid-cols-[300px_1fr] h-screen">
-      <DashNav />
-      <main className="p-4 overflow-auto">
-  { data.length>0 ? (
-    <div className="container mt-5">
-      <h2 className="mb-4">Participants Table</h2>
-      <table className="table table-hover table-striped">
-        <thead className="table-dark">
-          <tr>
-            <th>id</th>
-            <th>cin</th>
-            <th>email</th>
-            <th>userName</th>
-            <th>firstName</th>
-            <th>lastName</th>
-            <th>photo profil</th>
-            <th>satisfaction</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-                 
-              <th scope="row">{item.id}</th>
-              <td>{item.cin}</td>
-              <td>{item.email}</td>
-              <td>{item.name}</td>
-              <td>{item.firstName}</td>
-              <td>{item.lastName}</td>
-              <td>{item.imageUrl}</td>
-              <td>{item.satisfaction}</td>
-              <td>
-                <button
-                  className="btn btn-sm btn-primary me-2"
-                  onClick={() => handleEdit(item)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="btn btn-sm btn-danger"
-                  onClick={() => handleDelete(item.id)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <form
-        className="d-flex flex-column gap-3"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <div className="row g-3">
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="cin"
-              className="form-control"
-              placeholder="cin number"
-              value={form.cin}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="email"
-              className="form-control"
-              placeholder="email"
-              value={form.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="name"
-              className="form-control"
-              placeholder="name"
-              value={form.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="firstName"
-              className="form-control"
-              placeholder="firstName"
-              value={form.firstName}
-              onChange={handleChange}
-            />
-                   </div>
-            <div className="col-md-3">
-            <input
-              type="text"
-              name="lastName"
-              className="form-control"
-              placeholder="lastName"
-              value={form.lastName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="imageUrl"
-              className="form-control"
-              placeholder="foto de profil"
-              value={form.imageUrl}
-              onChange={handleChange}
-            />
-          </div>
-   
-      
-          <div className="col-md-3">
-            <input
-              type="text"
-              name="satisfaction"
-              className="form-control"
-              placeholder="satisfait"
-              value={form.satisfaction}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="col-md-3">
-            {isEditing ? (
-              <button
-                className="btn btn-success"
-                onClick={handleUpdate}
-                type="button"
+
+  return (
+    <>
+      <div className="grid grid-cols-[200px_1fr] md:grid-cols-[300px_1fr] h-screen">
+        <DashNav />
+        <main className="p-4 overflow-auto">
+          { data.length > 0 ? (
+            <div className="container mt-5">
+              <h2 className="mb-4 text-xl">Participants Table</h2>
+              <table className="table table-hover table-striped text-sm">
+                <thead className="table-dark">
+                  <tr>
+                    <th className="p-2">id</th>
+                    <th className="p-2">cin</th>
+                    <th className="p-2">email</th>
+                    <th className="p-2">userName</th>
+                    <th className="p-2">firstName</th>
+                    <th className="p-2">lastName</th>
+                    <th className="p-2">photo profil</th>
+                    <th className="p-2">satisfaction</th>
+                    <th className="p-2">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => (
+                    <tr key={item.id}>
+                      <th scope="row" className="p-2">{item.id}</th>
+                      <td className="p-2">{item.cin}</td>
+                      <td className="p-2">{item.email}</td>
+                      <td className="p-2">{item.name}</td>
+                      <td className="p-2">{item.firstName}</td>
+                      <td className="p-2">{item.lastName}</td>
+                      <td className="p-2">{item.imageUrl}</td>
+                      <td className="p-2">{item.satisfaction}</td>
+                      <td className="p-2">
+                        <button
+                          className="btn btn-sm btn-primary me-2"
+                          onClick={() => handleEdit(item)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="btn btn-sm btn-danger"
+                          onClick={() => handleDelete(item.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <form
+                className="d-flex flex-column gap-3"
+                onSubmit={(e) => e.preventDefault()}
               >
-                Update
-              </button>
-            ) : (
-              <button
-                className="btn btn-primary"
-                onClick={handleAdd}
-                type="button"
-              >
-                Add
-              </button>
-            )}
-          </div>
-        </div>
-      </form>
-    </div>):(  // Affiche un état vide si aucune donnée n'est trouvée
-        <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] alert alert-primary bg-grey-50 py-28 text-center">
-          <h3 className="p-bold-20 md:h5-bold">No participant found</h3>
-          <p className="p-regular-14">come back later</p>
-        </div>
+                <div className="row g-3">
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="cin"
+                      className="form-control form-control-sm"
+                      placeholder="cin number"
+                      value={form.cin}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="email"
+                      className="form-control form-control-sm"
+                      placeholder="email"
+                      value={form.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control form-control-sm"
+                      placeholder="name"
+                      value={form.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="firstName"
+                      className="form-control form-control-sm"
+                      placeholder="firstName"
+                      value={form.firstName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="form-control form-control-sm"
+                      placeholder="lastName"
+                      value={form.lastName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="imageUrl"
+                      className="form-control form-control-sm"
+                      placeholder="foto de profil"
+                      value={form.imageUrl}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    <input
+                      type="text"
+                      name="satisfaction"
+                      className="form-control form-control-sm"
+                      placeholder="satisfait"
+                      value={form.satisfaction}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-md-3">
+                    {isEditing ? (
+                      <button
+                        className="btn btn-success btn-sm"
+                        onClick={handleUpdate}
+                        type="button"
+                      >
+                        Update
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-primary btn-sm"
+                        onClick={handleAdd}
+                        type="button"
+                      >
+                        Add
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] alert alert-primary bg-grey-50 py-28 text-center">
+              <h3 className="p-bold-20 md:h5-bold">No participant found</h3>
+              <p className="p-regular-14">Come back later</p>
+            </div>
           )}
         </main>
-        </div>
+      </div>
     </>
-
   );
 };
 
