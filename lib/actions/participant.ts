@@ -31,6 +31,16 @@ export const updateParticipant = async (partId: string, PartData: any) => {
     }
 
 }
+export const updateParticipantClerkId = async (partId: string, PartData: any) => {
+    try {
+        axios.patch(`http://localhost:4000/participants/clerk/${partId}`, PartData);
+
+    } catch (error) {
+        console.error('Error updating participant:', error);
+        throw error;
+    }
+
+}
 export const addParticipant = async (participant: Participant) => {
     console.log(participant);
     try {

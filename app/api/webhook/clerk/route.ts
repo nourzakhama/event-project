@@ -1,4 +1,4 @@
-import { addParticipant, updateParticipant, deleteParticipant } from '@/lib/actions/participant';
+import { addParticipant, updateParticipant, deleteParticipant, updateParticipantClerkId } from '@/lib/actions/participant';
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
   }
 
   if (eventType === 'user.updated') {
-    const { image_url, first_name, last_name, username } = evt.data;
+    const {id,image_url, first_name, last_name, username } = evt.data;
 
     const user = {
       cin: id,
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
 
     try {
       console.log('Updating user:', user);
-      const updatedUser = await updateParticipant(user.cin!, user);
+      const updatedUser = await updateParticipantClerkId(user.cin!, user);
       return new Response("", { status: 200 });
     } catch (error) {
       console.error('Error updating participant:', error);
@@ -105,5 +105,5 @@ export async function POST(req: Request) {
     }
   }
 
-  return new Response('Event not handled', { status: 200 });
+  return new Response('Event not handled', { status: 500 });
 }
