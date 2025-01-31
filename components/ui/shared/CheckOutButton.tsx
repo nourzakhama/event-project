@@ -21,6 +21,7 @@ const CheckOutButton = ({event}:{event:Event}) => {
   } else {
     prix = +event.prix; // Convert the string to a number
   }
+    const hasEventFinished = new Date(event.dateF) < new Date();
    const onCheckOut=async()=>{
     const order = {
         eventTitle: event.title,
@@ -44,10 +45,17 @@ const CheckOutButton = ({event}:{event:Event}) => {
   }, []);
 
   return (
+  hasEventFinished ? (
+    <p className="p-2 text-red-400">Sorry, tickets are no longer available.</p>
+  ) : (
     <form action={onCheckOut} method="post">
-        <Button type="submit" role="link" size="lg" className="button sm:w-fit">{ prix==0?"get ticket":"buy tiket"}</Button>
+      <Button type="submit" role="link" size="lg" className="button sm:w-fit">
+        {prix === 0 ? "Get ticket" : "Buy ticket"}
+      </Button>
     </form>
   )
+);
 }
+
 
 export default CheckOutButton;
