@@ -1,4 +1,4 @@
-import { addParticipant, updateParticipant, deleteParticipant, updateParticipantClerkId } from '@/lib/actions/participant';
+import { addParticipant, updateParticipant, deleteParticipant, updateParticipantClerkId, deleteParticipantByClerkId } from '@/lib/actions/participant';
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
@@ -81,13 +81,14 @@ export async function POST(req: Request) {
       cin: id,
       firstName: first_name || '',
       lastName: last_name || '',
-      username: username || `user_${id}`,
+      name: username || `user_${id}`,
       imageUrl: image_url || '',
     };
 
     try {
-      console.log('Updating user:', user);
-      const updatedUser = await updateParticipantClerkId(user.cin!, user);
+      console.log('Updating user:', user); 
+      console.log('User ID:', user.cin);
+      const updatedUser = await updateParticipantClerkId(user.cin!.trim(), user);
       return new Response("", { status: 200 });
     } catch (error) {
       console.error('Error updating participant:', error);
@@ -97,7 +98,7 @@ export async function POST(req: Request) {
 
   if (eventType === 'user.deleted') {
     try {
-      const deletedUser = await deleteParticipant(id);
+      const deletedUser = await deleteParticipantByClerkId(id?.trim());
       return NextResponse.json({ message: 'User deleted', user: deletedUser });
     } catch (error) {
       console.error('Error deleting participant:', error);

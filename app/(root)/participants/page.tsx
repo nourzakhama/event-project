@@ -1,4 +1,5 @@
 'use client';
+import { addClerkUser } from '@/app/api/dataBaseTrigger/participant';
 import DashNav from '@/components/ui/shared/DashNav';
 import { addParticipant, deleteParticipant, getParticipants, updateParticipant } from '@/lib/actions/participant';
 import { Participant } from '@/types';
@@ -27,6 +28,7 @@ const Page = () => {
 
   const handleAdd =async () => {
    await addParticipant(form);
+   await addClerkUser(form);
     setForm({ cin: '', email: '',name:'', firstName: '' ,lastName:'',imageUrl:'',satisfaction:''});
     fetchParticipants();
   };

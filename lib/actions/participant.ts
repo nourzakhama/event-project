@@ -21,6 +21,15 @@ export const deleteParticipant = async (id: string | undefined) => {
     }
 
 }
+export const deleteParticipantByClerkId = async (id: string | undefined) => {
+    try {
+        let res = axios.delete(`http://localhost:4000/participants/clerk/${id}`);
+    } catch (error) {
+        console.error('Error deleting participant:', error);
+        throw error;
+    }
+
+}
 export const updateParticipant = async (partId: string, PartData: any) => {
     try {
         axios.patch(`http://localhost:4000/participants/${partId}`, PartData);
