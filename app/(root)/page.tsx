@@ -54,8 +54,8 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         </h2>
 
         {/* Filters */}
-        <div className="flex flex-col gap-5 md:flex-row mb-8">
-          <Search />
+        <div className="flex flex-col gap-5 md:flex-row mb-8 !text-black dark:text-black">
+          <Search  />
           <CategoryFilter />
         </div>
 

@@ -350,7 +350,7 @@ const EventForm = ({ userId, type, id }: Props) => {
                         dateFormat="MM/dd/yyyy h:mm aa"
                         showTimeSelect
                         placeholderText="Select Start Date"
-                        className="w-full bg-transparent border-none focus:outline-none"
+                        className="w-full bg-transparent border-none focus:outline-none !text-black"
                       />
                     </div>
                   </FormControl>
@@ -372,7 +372,7 @@ const EventForm = ({ userId, type, id }: Props) => {
                         dateFormat="MM/dd/yyyy h:mm aa"
                         showTimeSelect
                         placeholderText="Select End Date"
-                        className="w-full bg-transparent border-none focus:outline-none"
+                        className="w-full bg-transparent border-none focus:outline-none !text-black"
                       />
                     </div>
                   </FormControl>

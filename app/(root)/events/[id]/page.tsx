@@ -37,7 +37,7 @@ const DetailEvent = ({ params: { id } }: SearchParamProps) => {
     };
 
     fetchEvent();
-  }, [id]);
+  }, [id,inscription]);
 
   if (loading) {
     return <p className="text-center mt-20 text-gray-600">Loading...</p>;
@@ -48,7 +48,7 @@ const DetailEvent = ({ params: { id } }: SearchParamProps) => {
   }
 
   return (
-    <section className="flex justify-center bg-gray-50 min-h-screen py-10 px-5">
+    <section className="flex justify-center dark:bg-black min-h-screen py-10 px-5">
       <div className="flex flex-col w-full max-w-5xl bg-white shadow-xl rounded-lg overflow-hidden">
         {/* Event Image */}
         <div className="w-full h-[300px] md:h-[500px] relative">
@@ -69,7 +69,7 @@ const DetailEvent = ({ params: { id } }: SearchParamProps) => {
           </h1>
 
           {/* Event Details */}
-          <div className="flex flex-wrap items-center gap-4 mb-8">
+          <div className="flex flex-wrap items-center gap-4 mb-8 ">
             <span className="inline-block rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-700">
               {!event.prix ? "Free" : `$${event.prix}`}
             </span>
@@ -82,7 +82,7 @@ const DetailEvent = ({ params: { id } }: SearchParamProps) => {
           </div>
 
           {/* Dates and Location */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 ">
             <div className="flex items-center gap-3">
               <Image src="/assets/icons/calendar.svg" alt="calendar" width={24} height={24} />
               <p className="text-lg text-gray-600">

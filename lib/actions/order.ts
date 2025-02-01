@@ -76,7 +76,7 @@ export const createOrder = async (order: CreateOrder) => {
 
   try {
     axios.post('http://localhost:4000/order', order);
-
+  return;
   } catch (error) {
     console.error("Error creating order:", error);
     throw error;

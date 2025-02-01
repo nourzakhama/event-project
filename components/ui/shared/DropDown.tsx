@@ -51,7 +51,7 @@ const DropDown = ({ value, onChangeHandler }: Props) => {
 
   return (
     <Select onValueChange={onChangeHandler} defaultValue={value}>
-      <SelectTrigger className="w-full select-field">
+      <SelectTrigger className="w-full select-field !text-black">
         <SelectValue placeholder="status" />
       </SelectTrigger>
       <SelectContent>
@@ -60,7 +60,7 @@ const DropDown = ({ value, onChangeHandler }: Props) => {
             <SelectItem
               key={category.id}
               value={category.name}
-              className="select-item p-regular-14"
+              className="select-item p-regular-14 !text-black"
             >
               {category.name}
             </SelectItem>
