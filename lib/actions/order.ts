@@ -3,8 +3,13 @@ import { Order } from "@/types";
 import axios from "axios";
 import { redirect } from "next/navigation";
 import Stripe from "stripe";
-
-export const checkoutOrder = async (order: Order) => {
+type order= {
+  eventTitle: string | undefined;
+  eventId: string | undefined;
+  price: number;
+  buyerId: string | null | undefined;
+}
+export const checkoutOrder = async (order: order) => {
   // Initialize Stripe with your secret key
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2024-12-18.acacia", // Use the correct API version
@@ -75,7 +80,13 @@ type CreateOrder = {
 export const createOrder = async (order: CreateOrder) => {
 
   try {
-    axios.post('http://localhost:4000/order', order);
+    axios.post('http://localhost:4000/order',  { 
+      stripeId: order.stripeId,
+      eventId: order.eventId,
+      buyerId: order.buyerId,
+      price: order.totalAmount, // Ensure the correct field name
+      createdAt: order.createdAt
+    });
   return;
   } catch (error) {
     console.error("Error creating order:", error);
@@ -122,3 +133,20 @@ export const createOrder = async (order: CreateOrder) => {
       throw error;
     }
 }
+export const checkclientOrder = async (userId: string | null | undefined) => {
+  if (!userId) return false; // Vérifie si l'ID utilisateur est fourni
+
+  try {
+    const response = await axios.get(`http://localhost:4000/order/user/${userId}`);
+
+    const order = response.data; // Récupère les données de la commande
+    console.log(order)
+    if (!order) return false; // Si aucune commande trouvée, retourne false
+
+    return order.status === "valider"; // Vérifie si le statut est "valider"
+
+  } catch (error) {
+    console.error("Problème lors de la vérification du paiement :", error);
+    return false; // Retourne false en cas d'erreur
+  }
+};
